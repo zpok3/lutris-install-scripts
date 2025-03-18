@@ -1,0 +1,49 @@
+description: 'Play "Fallout 3: GOTY" provided by GOG on Linux!'
+game_slug: fallout-3-game-of-the-year-edition
+gogslug: fallout_3_game_of_the_year_edition
+humblestoreid: fallout-3-game-of-the-year-edition
+installer_slug: fallout-3-game-of-the-year-ed-mo2-gog
+name: 'Fallout 3: Game of the Year Edition'
+notes: 'Read the guide here: https://github.com/zpok3/lutris-install-scripts/wiki/Fallout-3'
+runner: wine
+script:
+  files:
+  - gogsetup: N/A:Please select installer exe from GOG
+  - mo2: N/A:Please select the MO2 ModdingLinked Edition archive
+  - fose: N/A:Please select the FOSE archive
+  - anniversarypatcher: N/A:Please select the Fallout Anniversary Patcher archive
+  game:
+    arch: win64
+    exe: drive_c/Modding/Waters of Life/ModOrganizer.exe
+    gogid: 1454315831
+    prefix: $GAMEDIR
+  installer:
+  - task:
+      arch: win64
+      description: Creating 64-bit Wine prefix
+      name: create_prefix
+      prefix: $GAMEDIR
+  - task:
+      executable: gogsetup
+      name: wineexec
+  - task:
+      name: winetricks
+      description: Installing VC++ Redistributables and configuring settings
+      app: vcrun2022 fontsmooth=rgb
+  - extract:
+      dst: $GAMEDIR/drive_c/Modding/Waters of Life
+      file: mo2
+  - extract:
+      dst: $GAMEDIR/drive_c/GOG Games/Fallout 3
+      file: fose
+  - extract:
+      dst: $GAMEDIR/drive_c/GOG Games/Fallout 3
+      file: anniversarypatcher
+  - task:
+      executable: $GAMEDIR/drive_c/GOG Games/Fallout 3/Patcher.exe
+      name: wineexec
+      description: Running Anniversary Patcher
+slug: fallout-3-game-of-the-year-ed-mo2-gog
+steamid: 22370
+version: GOG
+year: 2009
