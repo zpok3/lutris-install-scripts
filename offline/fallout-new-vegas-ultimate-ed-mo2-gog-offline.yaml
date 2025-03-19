@@ -32,6 +32,9 @@ script:
   - extract:
       dst: $GAMEDIR/drive_c/Modding/Viva New Vegas
       file: mo2
+  - write_file:
+      file: $GAMEDIR/drive_c/Modding/Viva New Vegas/portable.txt
+      content: 'Created by Lutris'
   - extract:
       dst: $GAMEDIR/drive_c/GOG Games/Fallout New Vegas
       file: xnvse
