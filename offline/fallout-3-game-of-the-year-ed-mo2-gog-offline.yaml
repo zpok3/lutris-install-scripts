@@ -32,9 +32,6 @@ script:
   - extract:
       dst: $GAMEDIR/drive_c/Modding/Waters of Life
       file: mo2
-  - write_file:
-      file: $GAMEDIR/drive_c/Modding/Waters of Life/portable.txt
-      content: 'Created by Lutris'
   - extract:
       dst: $GAMEDIR/drive_c/GOG Games/Fallout 3
       file: fose
