@@ -1,0 +1,48 @@
+description: 'Play "Fallout: New Vegas Ultimate Edition" provided by GOG on Linux!'
+game_slug: fallout-new-vegas
+gogslug: fallout_new_vegas_ultimate_edition
+humblestoreid: fallout-new-vegas-ultimate-edition
+installer_slug: fallout-new-vegas-ultimate-ed-mo2-gog
+name: 'Fallout New Vegas: Ultimate Edition'
+notes: 'Read the guide here: https://github.com/zpok3/lutris-install-scripts/wiki/Fallout:-New-Vegas'
+runner: wine
+script:
+  files:
+  - gogsetup: N/A:Please select installer exe from GOG
+  - mo2: N/A:Please select the MO2 ModdingLinked Edition archive
+  - xnvse: N/A:Please select the xNVSE archive
+  - fnv4gbpatcher: N/A:Please select the FNV 4GB Patcher archive
+  game:
+    arch: win64
+    exe: drive_c/Modding/Viva New Vegas/ModOrganizer.exe
+    prefix: $GAMEDIR
+  installer:
+  - task:
+      arch: win64
+      description: Creating 64-bit Wine prefix
+      name: create_prefix
+      prefix: $GAMEDIR
+  - task:
+      executable: gogsetup
+      name: wineexec
+  - task:
+      name: winetricks
+      description: Installing VC++ Redistributables and configuring settings
+      app: vcrun2022 fontsmooth=rgb
+  - extract:
+      dst: $GAMEDIR/drive_c/Modding/Viva New Vegas
+      file: mo2
+  - extract:
+      dst: $GAMEDIR/drive_c/GOG Games/Fallout New Vegas
+      file: xnvse
+  - extract:
+      dst: $GAMEDIR/drive_c/GOG Games/Fallout New Vegas
+      file: fnv4gbpatcher
+  - chmodx: $GAMEDIR/drive_c/GOG Games/Fallout New Vegas/FalloutNVPatcher
+  - execute:
+      command: 'cd drive_c/GOG\ Games/Fallout\ New\ Vegas ; ./FalloutNVPatcher'
+      description: Running 4GB patcher
+slug: fallout-new-vegas-ultimate-ed-mo2-gog
+steamid: 22380
+version: GOG
+year: 2012
