@@ -12,6 +12,7 @@ script:
   - mo2: N/A:Please select the MO2 ModdingLinked Edition archive
   - fose: N/A:Please select the FOSE archive
   - anniversarypatcher: N/A:Please select the Fallout Anniversary Patcher archive
+  - oggvorbislibs: N/A:Please select the Ogg Vorbis Libraries archive
   game:
     arch: win64
     exe: drive_c/Modding/Waters of Life/ModOrganizer.exe
@@ -38,6 +39,9 @@ script:
   - extract:
       dst: $GAMEDIR/drive_c/GOG Games/Fallout 3
       file: anniversarypatcher
+  - extract:
+      dst: $GAMEDIR/drive_c/GOG Games/Fallout 3
+      file: oggvorbislibs
   - task:
       executable: $GAMEDIR/drive_c/GOG Games/Fallout 3/Patcher.exe
       name: wineexec
