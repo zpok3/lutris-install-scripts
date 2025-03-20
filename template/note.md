@@ -1,1 +1,1 @@
-I used [this](https://lutris.net/games/install/29525/view) Fallout 3: GOTY install script as a base for the rest of the scripts. I've mirrored them here for archival purposes.
+I used [this](https://lutris.net/games/install/29525/view) Fallout 3: GOTY install script as a base for the rest of the scripts. I've mirrored it here for archival purposes. There's also an edited version with the GOG ID specified so it can download the installer files for you as long as you're signed in to GOG on Lutris.
